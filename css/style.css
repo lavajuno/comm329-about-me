@@ -104,6 +104,11 @@ figure {
     text-align: center;
 }
 
+figure img {
+    max-width: 95%;
+    height: auto;
+}
+
 figure figcaption {
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
