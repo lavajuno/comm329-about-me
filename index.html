@@ -3,21 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juno Meifert</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js"></script>
 </head>
 <body>
-    <header>
-        <div class="title_container">
-            <div class="title_name">
-                <h1>Juno Meifert</h1>
+    <div class="nav_container">
+        <nav>
+            <span class="expand_button" onclick="toggle_nav_expand()">&equiv;</span>
+            <a href="#">Home</a>
+            <a href="#">About Me</a>
+            <a href="#">Projects</a>
+        </nav>
+    </div>
+
+    <div class="header_container" alt="Aerial photo of a lake at dusk">
+        <header class="hero">
+            <h1>Juno Meifert</h1>
+        </header>
+    </div>
+
+    <main>
+        <div class="grid twocol_left">
+            <div class="card text">
+                <strong>My name is Juno,</strong>
+                I am a senior in computer science at Clarkson University.<br>
+                I was born and raised in central Massachusetts, where I played in my
+                high school's marching band, ran cross country, and was on the
+                local FIRST robotics team.
+                <br>
+                <a class="button right" href="">Read More</a>
             </div>
-            <div class="title_nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Me</a>
-                <a href="#">Projects</a>
+            <div class="card image" style="background-image: url('images/headshot.jpg')" alt="Photo of Juno"></div>
+        </div>
+    
+        <div class="grid threecol">
+            <div class="card text">
+                <h3>grid test</h3>
+            </div>
+            <div class="card image" style="background-image: url('images/headshot.jpg')" alt="Photo of Juno"></div>
+            <div class="card image" style="background-image: url('images/sky.jpg')" alt="Aerial photo of a lake at dusk"></div>
+        </div>
+    
+        <div class="grid">
+            <div class="card text">
+                <h1>Heading</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae cumque, voluptatibus, dicta earum nihil rem aut dolore perferendis placeat illum et suscipit minima assumenda, exercitationem maiores autem ad inventore beatae!</p>
             </div>
         </div>
-    </header>
+    </main>
 </body>
 </html>
