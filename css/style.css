@@ -36,6 +36,14 @@ body {
     background-image: radial-gradient(75% 75% at 19% 23%, #577EC405 0%, #250E7314 100%),radial-gradient(48% 48% at 60% 45%, #0D3AAC21 0%, #30349508 99%),radial-gradient(75% 75% at 17% 56%, #3CDCC60D 0%, #1E32570D 100%),radial-gradient(75% 75% at 71% 67%, #22336224 0%, #34357612 100%),radial-gradient(75% 75% at 44% 52%, #080808FF 0%, #070D11FF 99%);
 }
 
+hr {
+    box-sizing: border-box;
+    width: 33%;
+    margin: 3rem auto;
+    max-width: 35rem;
+    color: rgba(255,255,255,0.2);
+}
+
 
 /*
     ----- Navbar -----
@@ -93,6 +101,28 @@ nav>.expand_button:hover {
     color: black;
 }
 
+ul.footer_nav {
+    margin-left: 0;
+    list-style-type: "";
+    padding: 0;
+}
+
+ul.footer_nav>li {
+    margin: 0.5rem 0;
+}
+
+ul.footer_nav>li>a {
+    color: inherit;
+    text-decoration: inherit;
+
+    border-bottom: 1px solid transparent;
+    transition-duration: 200ms;
+}
+
+ul.footer_nav>li>a:hover {
+    border-bottom: 1px solid white;
+}
+
 @media screen and (max-width: 600px) {
     nav>.expand_button {
         display: initial;
@@ -137,6 +167,12 @@ div.header_container {
     max-width: 75rem;
 }
 
+header {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
 header.hero {
     margin: 0 auto;
     text-align: center;
@@ -153,7 +189,6 @@ header.hero {
 
 header.hero>h1 {
     font-size: 6rem;
-    color: white;
     text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
 }
 
@@ -173,6 +208,10 @@ div.grid {
     grid-template-columns: 1fr;
 }
 
+div.grid.twocol {
+    grid-template-columns: 1fr 1fr;
+}
+
 div.grid.twocol_left {
     grid-template-columns: 2fr 1fr;
 }
@@ -186,6 +225,9 @@ div.grid.threecol {
 }
 
 @media screen and (max-width: 600px) {
+    div.grid.twocol {
+        grid-template-columns: 1fr;
+    }
     div.grid.twocol_left {
         grid-template-columns: 1fr;
     }
@@ -213,7 +255,6 @@ div.grid.threecol {
 div.card {
     box-sizing: border-box;
     border-radius: 0.5rem;
-    /* background-color: rgba(0,0,20,0.7); */
     background-color: rgb(8,8,20);
     border: 1px solid rgba(255,255,255,0.15);
     box-shadow: 2px 2px 4px rgba(0,0,0,0.5), inset 4px 4px 32px rgba(255,255,255,0.06), inset -4px -4px 32px rgba(255,255,255,0.03);
