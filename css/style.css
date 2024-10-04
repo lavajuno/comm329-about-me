@@ -1,115 +1,308 @@
+/*
+    ----- Fonts -----
+*/
+
+@font-face {
+    font-family: "Source Sans 3";
+    font-weight: 200 900;
+    font-style: normal;
+    font-stretch: normal;
+    src: url("../fonts/SourceSans3VF-Upright.otf.woff2");
+}
+
+@font-face {
+    font-family: "Source Sans 3";
+    font-weight: 200 900;
+    font-style: italic;
+    font-stretch: normal;
+    src: url("../fonts/SourceSans3VF-Italic.otf.woff2");
+}
+
+
+/*
+    ----- General -----
+*/
+
 body {
-    margin: 0;
+    margin: 4.75rem 0 0 0%; /* space for navbar */
     padding: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: #222;
-    color: rgb(245, 250, 255);
+    border: 0;
+
+    font-family: "Source Sans 3", sans-serif;
+    color: white;
+
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+    background-image: radial-gradient(75% 75% at 19% 23%, #577EC405 0%, #250E7314 100%),radial-gradient(48% 48% at 60% 45%, #0D3AAC21 0%, #30349508 99%),radial-gradient(75% 75% at 17% 56%, #3CDCC60D 0%, #1E32570D 100%),radial-gradient(75% 75% at 71% 67%, #22336224 0%, #34357612 100%),radial-gradient(75% 75% at 44% 52%, #080808FF 0%, #070D11FF 99%);
+}
+
+hr {
+    box-sizing: border-box;
+    width: 33%;
+    margin: 3rem auto;
+    max-width: 35rem;
+    color: rgba(255,255,255,0.2);
+}
+
+
+/*
+    ----- Navbar -----
+*/
+
+.nav_container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 nav {
     display: flex;
     flex-flow: row wrap;
-}
-
-.title_container {
-    width: 100vw;
-    min-height: 100vh;
-    /* border: 1px solid red; */
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-    justify-content: center;
-}
-
-.title_name {
-    flex-grow: 1;
-    padding: 2rem;
-    text-align: center;
-}
-
-.title_name h1 {
-    font-size: 6rem;
-}
-
-.title_nav {
-    flex-grow: 1;
-    /* border: 1px solid blue; */
+    background-color: black;
+    border-radius: 0.5rem;
     padding: 1rem;
-    margin: auto;
-}
-
-.title_nav a {
-    display: block;
-    color: inherit;
-    background-color: #000;
-    text-decoration: none;
-    box-sizing: border-box;
-    padding: 1rem;
-    text-align: center;
-    width: 20rem;
-    margin: 1rem auto;
-    transition-duration: 200ms;
-}
-
-.title_nav a:hover {
-    color: #000;
-    background-color: #fff;
-}
-
-nav a {
-    color: inherit;
-    background-color: #000;
-    text-decoration: none;
-    box-sizing: border-box;
-    padding: 1rem;
-    transition-duration: 200ms;
-    flex-grow: 1;
-    text-align: center;
-    width: 20rem;
-}
-
-nav a:hover {
-    color: #000;
-    background-color: #fff;
-}
-
-.banner {
-    padding: 6rem 2rem;
-    box-sizing: border-box;
-    background-color: #002;
-    margin-bottom: 2rem;
-    box-shadow: 0 0.1rem 0.2rem #000;
-}
-
-article {
-    max-width: 60rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2rem;
-    background-color: #111;
-    padding: 1rem 2rem;
-    box-shadow: 0.1 0.1rem 0.2rem #000;
-}
-
-.banner h1 {
-    font-size: 5rem;
-    padding: 0 0 1rem 0;
-    text-align: center;
+    max-width: 45rem;
     margin: 0 auto;
+    background-color: rgba(0, 0, 10, 0.7);
+    backdrop-filter: blur(0.5rem) saturate(150%);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.5), inset 4px 4px 24px rgba(255,255,255,0.06), inset -4px -4px 24px rgba(255,255,255,0.03);
 }
 
-figure {
-    margin: 2rem 0;
+nav>a {
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    transition-duration: 200ms;
+    border-bottom: 1px solid transparent;
+}
+
+nav>a:hover {
+    border-bottom: 1px solid white;
+}
+
+nav>.expand_button {
+    color: white;
+    padding: 0.4rem 0.8rem;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 0.2rem;
+    display: none;
+    transition-duration: 200ms;
+}
+
+nav>.expand_button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+ul.footer_nav {
+    margin-left: 0;
+    list-style-type: "";
+    padding: 0;
+}
+
+ul.footer_nav>li {
+    margin: 0.5rem 0;
+}
+
+ul.footer_nav>li>a {
+    color: inherit;
+    text-decoration: inherit;
+
+    border-bottom: 1px solid transparent;
+    transition-duration: 200ms;
+}
+
+ul.footer_nav>li>a:hover {
+    border-bottom: 1px solid white;
+}
+
+@media screen and (max-width: 600px) {
+    nav>.expand_button {
+        display: initial;
+    }
+
+    nav>a {
+        display: none;
+    }
+
+    nav.expanded>.expand_button {
+        margin-bottom: 1rem;
+    }
+
+    nav.expanded>a {
+        display: initial;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
+    .nav_container {
+        padding: 0;
+    }
+
+    nav {
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+    }
+}
+
+
+/*
+    ----- Headers -----
+*/
+
+div.header_container {
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 75rem;
+}
+
+header {
+    margin: 0 auto;
     text-align: center;
+    font-size: 2rem;
 }
 
-figure img {
-    max-width: 95%;
-    height: auto;
+header.hero {
+    margin: 0 auto;
+    text-align: center;
+    padding: 5rem 1rem;
+    border-radius: 0.5rem;
+    background-image: url("../images/sky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-figure figcaption {
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+header.hero>h1 {
+    font-size: 5rem;
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
+}
+
+
+/*
+    ----- Grids -----
+*/
+
+div.grid {
+    margin: 0 auto;
+    padding: 0.5rem;
+    max-width: 75rem;
+    width: 100%;
+    display: grid;
+    box-sizing: border-box;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+div.grid.twocol {
+    grid-template-columns: 1fr 1fr;
+}
+
+div.grid.twocol_left {
+    grid-template-columns: 2fr 1fr;
+}
+
+div.grid.twocol_right {
+    grid-template-columns: 1fr 2fr;
+}
+
+div.grid.threecol {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media screen and (max-width: 600px) {
+    div.grid.twocol {
+        grid-template-columns: 1fr;
+    }
+    div.grid.twocol_left {
+        grid-template-columns: 1fr;
+    }
+    
+    div.grid.twocol_right {
+        grid-template-columns: 1fr;
+    }
+
+    div.grid.threecol {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    div.grid.threecol {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/*
+    ----- Content Cards -----
+*/
+
+div.card {
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    background-color: rgb(8,8,20);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5), inset 4px 4px 32px rgba(255,255,255,0.06), inset -4px -4px 32px rgba(255,255,255,0.03);
+}
+
+div.card.text {
+    padding: 1rem 1.5rem;
+}
+
+div.card.image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(125,125,125);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    min-height: 20rem;
+}
+
+img.card {
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    height: 100%;
+    width: auto;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+
+/*
+    ----- Buttons -----
+*/
+
+a.button {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    background-color: rgba(25,25,70);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+
+    text-decoration: inherit;
+    color: inherit;
+    transition-duration: 200ms;
+}
+
+a.button:hover {
+    border: 1px solid rgba(255,255,255,0.5);
+    background-color: rgba(35,35,90);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.7), inset 4px 4px 32px rgba(100,100,255,0.08), inset -4px -4px 32px rgba(100,100,255,0.08);
 }
