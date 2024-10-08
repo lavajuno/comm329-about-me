@@ -23,6 +23,11 @@
     ----- General -----
 */
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 4.75rem 0 0 0%; /* space for navbar */
     padding: 0;
@@ -51,7 +56,7 @@ hr {
     ----- Navbar -----
 */
 
-.nav_container {
+div.nav_container {
     position: fixed;
     top: 0;
     width: 100%;
@@ -169,8 +174,9 @@ div.header_container {
     max-width: 75rem;
 }
 
-header {
-    margin: 0 auto;
+section>header {
+    margin: 2rem auto;
+    padding: 0 0.5rem;
     text-align: center;
     font-size: 2rem;
 }
@@ -178,7 +184,7 @@ header {
 header.hero {
     margin: 0 auto;
     text-align: center;
-    padding: 5rem 1rem;
+    padding: 8rem 1rem;
     border-radius: 0.5rem;
     background-image: url("../images/sky.jpg");
     background-size: cover;
@@ -186,7 +192,7 @@ header.hero {
     background-attachment: fixed;
     background-position: center;
     border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.5);
 }
 
 header.hero>h1 {
@@ -194,9 +200,24 @@ header.hero>h1 {
     text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
 }
 
+/*
+    ----- Footers -----
+*/
+
+main>footer {
+    max-width: 75rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    background-color: rgb(10,10,20);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.5);
+    padding: 0.5rem 1rem;
+}
+
 
 /*
-    ----- Grids -----
+    ----- Generic grids -----
 */
 
 div.grid {
@@ -254,17 +275,62 @@ div.grid.threecol {
     ----- Content Cards -----
 */
 
-div.card {
+.card_container {
     box-sizing: border-box;
-    border-radius: 0.5rem;
-    background-color: rgb(8,8,20);
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.5), inset 4px 4px 32px rgba(255,255,255,0.06), inset -4px -4px 32px rgba(255,255,255,0.03);
+    margin: 0 auto;
+    padding: 0.5rem;
+    max-width: 75rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-gap: 1rem;
 }
 
-div.card.text {
-    padding: 1rem 1.5rem;
+article.card {
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    background-color: rgb(10,10,20);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: grid;
+    grid-template-rows: 12rem max-content 1fr max-content;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.5);
 }
+
+article.card.solo {
+    grid-template-rows: max-content;
+}
+
+article.card.noimg {
+    grid-template-rows: max-content 1fr max-content;
+}
+
+article.card>header {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+}
+
+article.card>div.content {
+    padding: 0.75rem;
+}
+
+article.card>footer {
+    box-sizing: border-box;
+    background-color: rgb(3,3,12);
+    border-radius: 0 0 0.5rem 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+article.card>img {
+    box-sizing: border-box;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+
 
 div.card.image {
     background-repeat: no-repeat;
@@ -272,18 +338,11 @@ div.card.image {
     background-size: cover;
     background-color: rgb(125,125,125);
     box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    min-height: 20rem;
-}
-
-img.card {
-    box-sizing: border-box;
-    border-radius: 0.5rem;
     border: 1px solid rgba(255,255,255,0.15);
-    height: 100%;
-    width: auto;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    min-height: 20rem;
+    border-radius: 0.5rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.5);
 }
-
 
 /*
     ----- Buttons -----
@@ -296,7 +355,7 @@ a.button {
     background-color: rgba(25,25,70);
     border: 1px solid rgba(255,255,255,0.15);
     border-radius: 0.5rem;
-    margin: 0.5rem 0;
+    margin: 0;
 
     text-decoration: inherit;
     color: inherit;
@@ -307,4 +366,11 @@ a.button:hover {
     border: 1px solid rgba(255,255,255,0.5);
     background-color: rgba(35,35,90);
     box-shadow: 2px 2px 4px rgba(0,0,0,0.7), inset 4px 4px 32px rgba(100,100,255,0.08), inset -4px -4px 32px rgba(100,100,255,0.08);
+}
+
+/*
+    ----- Quick modifiers -----
+*/
+.right {
+    text-align: right;
 }
