@@ -51,6 +51,11 @@ hr {
     color: rgba(255,255,255,0.2);
 }
 
+p {
+   margin-top: 0.5rem;
+   margin-bottom: 0.5rem; 
+}
+
 
 /*
     ----- Navbar -----
@@ -348,7 +353,8 @@ div.card.image {
     ----- Buttons -----
 */
 
-a.button {
+button, a.button {
+    font: inherit;
     display: inline-block;
     box-sizing: border-box;
     padding: 0.5rem 1rem;
@@ -363,23 +369,52 @@ a.button {
     transition-duration: 200ms;
 }
 
-a.button.large {
+button.large, a.button.large {
     width: 100%;
     max-width: 30rem;
     margin-left: auto;
     margin-right: auto;
 }
 
-a.button:hover {
+button:hover, a.button:hover {
     cursor: pointer;
     border: 1px solid rgba(255,255,255,0.5);
     background-color: rgba(35,35,90);
     box-shadow: 2px 2px 4px rgba(0,0,0,0.7), inset 4px 4px 32px rgba(100,100,255,0.08), inset -4px -4px 32px rgba(100,100,255,0.08);
 }
 
+
+
 /*
     ----- Quick modifiers -----
 */
+
 .right {
     text-align: right;
+}
+
+
+
+/*
+    ----- Expandable sections -----
+*/
+
+.extra {
+    display: none;
+}
+
+.expanded .extra {
+    display: block;
+}
+
+.expanded button.expand {
+    display: none;
+}
+
+button.collapse {
+    display: none;
+}
+
+.expanded button.collapse {
+    display: initial;
 }

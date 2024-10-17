@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="icons/css/solid.min.css">
     <link rel="stylesheet" href="icons/css/fontawesome.min.css">
-    <script src="js/index.js"></script>
+    <script src="js/jquery/jquery-3.7.1.min.js"></script>
 </head>
 <body>
     <div class="nav_container">
         <nav>
-            <span class="expand_button" onclick="toggle_nav_expand()"><i class="fa-solid fa-bars"></i></span>
+            <span class="expand_button" onclick="$('nav').toggleClass('expanded')"><i class="fa-solid fa-bars"></i></span>
             <a href="index.html">Home</a>
             <a href="#">About Me</a>
             <a href="projects.html">Projects</a>
