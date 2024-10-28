@@ -1,7 +1,12 @@
 /**
  * @type {HTMLInputElement}
  */
-const pfp = document.getElementById("pfp");
+const photo_display = document.getElementById("photo_display");
+
+/**
+ * @type {HTMLInputElement}
+ */
+const photo = document.getElementById("photo");
 
 /**
  * @type {HTMLInputElement}
@@ -26,12 +31,12 @@ const password_confirm = document.getElementById("password_confirm");
 /**
  * @type {HTMLInputElement}
  */
-const first_name = document.getElementById("first_name");
+const gender = document.getElementById("gender");
 
 /**
- * @type {HTMLInputElement}
+ * @type {HTMLDivElement}
  */
-const last_name = document.getElementById("last_name");
+const custom_gender_options = document.getElementById("custom_gender_options");
 
 const PHONE_REGEX = /^(\+\d{1,3})?\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4,6}$/im;
 
@@ -96,14 +101,13 @@ function validateEmail(element) {
     return element.type == "email" && element.checkValidity();
 }
 
-/**
- * @param {HTMLInputElement} element
- * @returns {Boolean}
- */
-function validateDate(element) {
-    return element.type == "date" && element.checkValidity();
-}
-
+photo.addEventListener("input", (event) => {
+    let f = new FileReader();
+    f.addEventListener("load", (event) => {
+        photo_display.src = event.target.result;
+    });
+    f.readAsDataURL(event.target.files[0]);
+});
 
 email.addEventListener("input", () => {
     if (validateEmail(email)) {
@@ -144,10 +148,10 @@ password_confirm.addEventListener("input", () => {
     }
 });
 
-date.addEventListener("input", () => {
-    if (validateEmail(email)) {
-        clearStatus(email);
+gender.addEventListener("input", () => {
+    if (gender.value == "custom") {
+        setClass(custom_gender_options, "hidden", false);
     } else {
-        setStatus(email, "Date not recognized.");
+        setClass(custom_gender_options, "hidden", true);
     }
 });

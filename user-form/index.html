@@ -12,180 +12,194 @@
     </header>
 
     <main>
-        <form class="cards" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
+            <div class="cards">
+                <fieldset>
+                    <header>
+                        <h2>Profile Photo</h2>
+                    </header>
+
+                    <p class="centered">
+                        <img id="photo_display" class="pfp">
+                    </p>
+                    
+                    
+                    <div class="centered">
+                        <label for="photo" class="button">Upload a new profile photo</label>
+                        <input
+                            type="file"
+                            id="photo"
+                            name="photo"
+                            accept="image/jpeg,image/png"
+                            class="hidden"
+                        />
+                    </div>
+
+                </fieldset>
+
+                <fieldset>
+                    <header>
+                        <h2>Account</h2>
+                    </header>
+
+                    <div class="widget">
+                        <label for="email">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            minlength="2"
+                            maxlength="32"
+                            required
+                        />
+                    </div>
+
+                    <div class="widget">
+                        <label for="phone">Phone:</label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="tel"
+                            required
+                        />
+                    </div>
+
+                    <div class="widget">
+                        <label for="password">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            minlength="15"
+                            maxlength="64"
+                            required
+                        />
+                    </div>
+
+                    <div class="widget">
+                        <label for="password_confirm">Confirm password:</label>
+                        <input
+                            type="password"
+                            id="password_confirm"
+                            name="password_confirm"
+                            minlength="15"
+                            maxlength="64"
+                            required
+                        />
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <header>
+                        <h2>Information</h2>
+                    </header>
+
+                    <div class="widget">
+                        <label for="first_name">First name:</label>
+                        <input
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            minlength="2"
+                            maxlength="32"
+                            required
+                        />
+                    </div>
+
+                    <div class="widget">
+                        <label for="last_name">Last name:</label>
+                        <input
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            minlength="2"
+                            maxlength="32"
+                            required
+                        />
+                    </div>
+
+                    <div class="widget">
+                        <label for="dob">Date of birth:</label>
+                        <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                            required
+                        />
+                    </div>
+
+                    <div class="widget">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="" selected>Prefer not to say</option>
+                            <option value="man">Man</option>
+                            <option value="woman">Woman</option>
+                            <option value="nb">Non-binary</option>
+                            <option value="custom">Custom</option>
+                        </select>
+
+                        <div id="custom_gender_options" class="widget hidden">
+                            <label for="custom_gender">Upload a custom gender:</label>
+                            <input
+                                type="file"
+                                id="custom_gender"
+                                name="custom_gender"
+                                accept="*"
+                                class="hidden"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <header>
+                        <h2>Preferences</h2>
+                    </header>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="newsletter"
+                            name="newsletter"
+                            checked
+                        />
+                        <label for="newsletter">Subscribe to our hourly newsletter</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="spam"
+                            name="spam"
+                            checked
+                        />
+                        <label for="spam">I want to receive spam from you and others</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="breaches"
+                            name="breaches"
+                            checked
+                        />
+                        <label for="breaches">Include my information in data breaches</label>
+                    </div>
+
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="arbitration"
+                            name="arbitration"
+                            checked
+                            required
+                        />
+                        <label for="arbitration">Opt-in to our mandatory binding arbitration program</label>
+                    </div>
+                </fieldset>
+            </div>
+
             <fieldset>
-                <header>
-                    <h2>Photo</h2>
-                </header>
-
-                <img class="pfp">
-                
-                <div class="widget">
-                    <label for="photo">Upload a profile photo:</label>
-                    <input
-                        type="file"
-                        id="photo"
-                        name="photo"
-                        accept="image/jpg,image/png"
-                    />
-                </div>
-
-            </fieldset>
-
-            <fieldset>
-                <header>
-                    <h2>Account</h2>
-                </header>
-
-                <div class="widget">
-                    <label for="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        minlength="2"
-                        maxlength="32"
-                        required
-                    />
-                </div>
-
-                <div class="widget">
-                    <label for="phone">Phone:</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="tel"
-                        required
-                    />
-                </div>
-
-                <div class="widget">
-                    <label for="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        minlength="15"
-                        maxlength="64"
-                        required
-                    />
-                </div>
-
-                <div class="widget">
-                    <label for="password_confirm">Confirm password:</label>
-                    <input
-                        type="password"
-                        id="password_confirm"
-                        name="password_confirm"
-                        minlength="15"
-                        maxlength="64"
-                        required
-                    />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <header>
-                    <h2>Information</h2>
-                </header>
-
-                <div class="widget">
-                    <label for="first_name">First name:</label>
-                    <input
-                        type="text"
-                        id="first_name"
-                        name="first_name"
-                        minlength="2"
-                        maxlength="32"
-                        required
-                    />
-                </div>
-
-                <div class="widget">
-                    <label for="last_name">Last name:</label>
-                    <input
-                        type="text"
-                        id="last_name"
-                        name="last_name"
-                        minlength="2"
-                        maxlength="32"
-                        required
-                    />
-                </div>
-
-                <div class="widget">
-                    <label for="dob">Date of birth:</label>
-                    <input
-                        type="date"
-                        id="dob"
-                        name="dob"
-                        required
-                    />
-                </div>
-
-                <div class="widget">
-                    <label for="gender">Gender:</label>
-                    <select id="gender" name="gender">
-                        <option value="" selected>Prefer not to say</option>
-                        <option value="man">Man</option>
-                        <option value="woman">Woman</option>
-                        <option value="nb">Non-binary</option>
-                    </select>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <header>
-                    <h2>Preferences</h2>
-                </header>
-
-                <div>
-                    <input
-                        type="checkbox"
-                        id="newsletter"
-                        name="newsletter"
-                        checked
-                    />
-                    <label for="newsletter">Subscribe to our hourly newsletter</label>
-                </div>
-
-                <div>
-                    <input
-                        type="checkbox"
-                        id="spam"
-                        name="spam"
-                        checked
-                    />
-                    <label for="spam">I want to receive spam from you and others</label>
-                </div>
-
-                <div>
-                    <input
-                        type="checkbox"
-                        id="breaches"
-                        name="breaches"
-                        checked
-                    />
-                    <label for="breaches">Include my information in data breaches</label>
-                </div>
-
-                <div>
-                    <input
-                        type="checkbox"
-                        id="arbitration"
-                        name="arbitration"
-                        checked
-                        required
-                    />
-                    <label for="arbitration">Opt-in to our mandatory binding arbitration program</label>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <header>
-                    <h2>Legal</h2>
-                </header>
-
                 <div>
                     <input
                         type="checkbox"
@@ -208,15 +222,7 @@
                         not creating this account on behalf of Anish Kapoor or an associate of Anish Kapoor.
                     </label>
                 </div>
-            </fieldset>
-
-            <fieldset>
-                <header>
-                    <h2>Submit</h2>
-                </header>
-                <div>
-                    <button type="submit">Create Account</button>
-                </div>
+                <button type="submit" class="wide">Create Account</button>
             </fieldset>
         </form>
     </main>

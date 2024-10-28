@@ -12,6 +12,10 @@ body {
     background-color: rgb(235,235,235);
 }
 
+p {
+    margin: 1rem 0;
+}
+
 
 
 /*
@@ -44,21 +48,26 @@ body>footer {
     --- Forms ---
 */
 
-form.cards {
+div.cards {
     box-sizing: border-box;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 1rem;
+    margin: 1rem 0;
 }
 
 @media screen and (max-width: 600px) {
-    form.cards {
+    div.cards {
         grid-template-columns: 1fr;
     }
 }
 
-form.cards>fieldset {
+/*
+    --- Cards ---
+*/
+
+fieldset {
     box-sizing: border-box;
     border-radius: 0.5rem;
     background-color: rgb(250,250,250);
@@ -87,12 +96,19 @@ input[type="tel"]
 }
 
 select {
+    border: 1px solid rgb(150,150,150);
+    background-color: rgb(230,230,230);
+    border-radius: 0.25rem;
     font: inherit;
     box-sizing: border-box;
     padding: 0.25rem 0.5rem;
 }
 
 label {
+    margin-top: 0.5rem;
+}
+
+input[type="checkbox"] {
     margin-top: 0.5rem;
 }
 
@@ -109,19 +125,37 @@ form div.status {
     color: rgb(100,0,0);
 }
 
+select:hover,
+input[type="checkbox"]:hover,
+input[type="radio"]:hover
+{
+    cursor: pointer;
+}
 
 
 /*
     --- Buttons ---
 */
 
-button, a.button {
+button, a.button, label.button {
+    border: 1px solid rgb(150,150,150);
+    background-color: rgb(230,230,230);
+    border-radius: 0.25rem;
+    box-sizing: border-box;
     font: inherit;
     padding: 0.25rem 0.5rem;
     margin: 0.25rem 0;
 }
 
-button:hover, a.button:hover {
+button.wide, a.button.wide, label.button.wide {
+    display: block;
+    width: 100%;
+    max-width: 30rem;
+    text-align: center;
+    margin: 1rem auto 0 auto;
+}
+
+button:hover, a.button:hover, label.button:hover {
     cursor: pointer;
 }
 
@@ -142,4 +176,16 @@ img.pfp {
     border: 1px solid rgb(200,200,200);
     box-shadow: 0.25rem 0.25rem 0.75rem rgba(0,0,0,0.1), -0.25rem -0.25rem 0.75rem rgba(255,255,255,0.45);
     background: rgb(100,100,100);
+}
+
+/*
+    --- Shortcuts ---
+*/
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    text-align: center;
 }
