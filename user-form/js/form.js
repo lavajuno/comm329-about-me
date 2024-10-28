@@ -136,6 +136,14 @@ password.addEventListener("input", () => {
     }
 });
 
+password_confirm.addEventListener("input", () => {
+    if (password.value == password_confirm.value) {
+        clearStatus(password_confirm);
+    } else {
+        setStatus(password_confirm, "Passwords do not match.");
+    }
+});
+
 date.addEventListener("input", () => {
     if (validateEmail(email)) {
         clearStatus(email);
