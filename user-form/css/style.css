@@ -1,0 +1,145 @@
+/*
+    --- Overrides ---
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: rgb(235,235,235);
+}
+
+
+
+/*
+    --- Page structure ---
+*/
+
+body>header, main, body>footer {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+body>header {
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+body>footer {
+    margin-top: 2.5rem;
+}
+
+
+
+/*
+    --- Forms ---
+*/
+
+form.cards {
+    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    form.cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+form.cards>fieldset {
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+    background-color: rgb(250,250,250);
+    border: 1px solid rgb(200,200,200);
+    box-shadow: 0.25rem 0.25rem 0.75rem rgba(0,0,0,0.1), -0.25rem -0.25rem 0.75rem rgba(255,255,255,0.45);
+    padding: 1rem;
+}
+
+form div.widget>input, form div.widget>label {
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"]
+{
+    border: 1px solid rgb(150,150,150);
+    background-color: rgb(250,250,250);
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font: inherit;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+}
+
+select {
+    font: inherit;
+    box-sizing: border-box;
+    padding: 0.25rem 0.5rem;
+}
+
+label {
+    margin-top: 0.5rem;
+}
+
+input:invalid, input.invalid {
+    border-bottom: 2px solid rgb(200,0,0);
+}
+
+input:invalid:focus, input.invalid:focus {
+    background-color: rgb(255,240,240);
+}
+
+form div.status {
+    font-size: 0.8rem;
+    color: rgb(100,0,0);
+}
+
+
+
+/*
+    --- Buttons ---
+*/
+
+button, a.button {
+    font: inherit;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem 0;
+}
+
+button:hover, a.button:hover {
+    cursor: pointer;
+}
+
+
+
+/*
+    --- Images ---
+*/
+
+img.pfp {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 12rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid rgb(200,200,200);
+    box-shadow: 0.25rem 0.25rem 0.75rem rgba(0,0,0,0.1), -0.25rem -0.25rem 0.75rem rgba(255,255,255,0.45);
+    background: rgb(100,100,100);
+}
