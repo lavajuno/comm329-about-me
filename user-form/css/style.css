@@ -145,6 +145,7 @@ button, a.button, label.button {
     font: inherit;
     padding: 0.25rem 0.5rem;
     margin: 0.25rem 0;
+    transition-duration: 200ms;
 }
 
 button.wide, a.button.wide, label.button.wide {
@@ -156,7 +157,10 @@ button.wide, a.button.wide, label.button.wide {
 }
 
 button:hover, a.button:hover, label.button:hover {
+    background: rgb(200,200,200);
+    box-shadow: 0.15rem 0.15rem 0.45rem rgba(0,0,0,0.1);
     cursor: pointer;
+    
 }
 
 
