@@ -1,4 +1,9 @@
 /**
+ * @type {HTMLFormElement}
+ */
+const form = document.querySelector("form");
+
+/**
  * @type {HTMLInputElement}
  */
 const photo_display = document.getElementById("photo_display");
@@ -38,68 +43,93 @@ const gender = document.getElementById("gender");
  */
 const custom_gender_options = document.getElementById("custom_gender_options");
 
+/**
+ * @type {HTMLButtonElement}
+ */
+const submit_button = document.querySelector("form button[type='submit']");
+
+
 const PHONE_REGEX = /^(\+\d{1,3})?\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4,6}$/im;
 
+class Utils {
+    /**
+     * @param {HTMLElement} element 
+     * @param {String} class_name 
+     * @param {Boolean} state
+     */
+    static setClass(element, class_name, state) {
+        if (state) {
+            element.classList.add(class_name);
+        } else {
+            element.classList.remove(class_name);
+        }
+    }
 
-/**
- * @param {HTMLElement} element 
- * @param {String} class_name 
- * @param {Boolean} state
- */
-function setClass(element, class_name, state) {
-    if (state) {
-        element.classList.add(class_name);
-    } else {
-        element.classList.remove(class_name);
+    /**
+     * @param {HTMLElement} element 
+     */
+    static setValid(element) {
+        this.setClass(element, "invalid", false);
+    }
+
+    /**
+     * @param {HTMLElement} element 
+     */
+    static setInvalid(element) {
+        this.setClass(element, "invalid", true);
+    }
+
+    /**
+     * @param {HTMLElement} element 
+     * @param {String} message
+     */
+    static setStatus(element, message) {
+        let status = element.parentElement.querySelector("div.status");
+        if (status == null) {
+            status = document.createElement("div");
+            status.classList.add("status");
+            element.parentElement.append(status);
+        }
+        status.innerHTML = message;
+    }
+
+    /**
+     * @param {HTMLElement} element 
+     */
+    static clearStatus(element) {
+        let status = element.parentElement.querySelector("div.status");
+        if (status != null) { status.remove(); }
     }
 }
 
-/**
- * @param {HTMLElement} element 
- * @param {String} message
- */
-function setStatus(element, message) {
-    let status = element.parentElement.querySelector("div.status");
-    if (status == null) {
-        status = document.createElement("div");
-        status.classList.add("status");
-        element.parentElement.append(status);
+class Validators {
+    /**
+     * @param {HTMLInputElement} element
+     * @returns {Boolean}
+     */
+    static phone(element) {
+        return PHONE_REGEX.test(element.value);
     }
-    status.innerHTML = message;
-}
-
-/**
- * @param {HTMLElement} element 
- */
-function clearStatus(element) {
-    let status = element.parentElement.querySelector("div.status");
-    if (status != null) { status.remove(); }
-}
-
-/**
- * @param {HTMLInputElement} element
- * @returns {Boolean}
- */
-function validatePhone(element) {
-    return PHONE_REGEX.test(element.value);
-}
 
 
-/**
- * @param {HTMLInputElement} element
- * @returns {Boolean}
- */
-function validatePassword(element) {
-    return element.value.length >= 15;
+    /**
+     * @param {HTMLInputElement} element
+     * @returns {Boolean}
+     */
+    static password(element) {
+        return element.value.length >= 15;
+    }
+
+    /**
+     * @param {HTMLInputElement} element
+     * @returns {Boolean}
+     */
+    static email(element) {
+        return element.type == "email" && element.checkValidity();
+    }
 }
 
-/**
- * @param {HTMLInputElement} element
- * @returns {Boolean}
- */
-function validateEmail(element) {
-    return element.type == "email" && element.checkValidity();
-}
+
 
 photo.addEventListener("input", (event) => {
     let f = new FileReader();
@@ -110,48 +140,66 @@ photo.addEventListener("input", (event) => {
 });
 
 email.addEventListener("input", () => {
-    if (validateEmail(email)) {
-        clearStatus(email);
+    if (Validators.email(email)) {
+        Utils.clearStatus(email);
     } else {
-        setStatus(email, "Email address not recognized.");
+        Utils.setStatus(email, "Email address not recognized.");
     }
 });
 
 phone.addEventListener("input", () => {
-    if (validatePhone(phone)) {
-        setClass(phone, "invalid", false);
-        clearStatus(phone);
+    if (Validators.phone(phone)) {
+        Utils.setValid(phone);
+        Utils.clearStatus(phone);
     } else {
-        setClass(phone, "invalid", true);
-        setStatus(phone, "Phone number not recognized.");
+        Utils.setInvalid(phone);
+        Utils.setStatus(phone, "Phone number not recognized.");
     }
 });
 
 password.addEventListener("input", () => {
-    if (validatePassword(password)) {
-        clearStatus(password);
+    if (Validators.password(password)) {
+        Utils.clearStatus(password);
     } else {
-        setStatus(password, "Password must be at least 15 characters.");
+        Utils.setStatus(password, "Password must be at least 15 characters.");
     }
     if (password.value == password_confirm.value) {
-        clearStatus(password_confirm);
+        Utils.setValid(password_confirm);
+        Utils.clearStatus(password_confirm);
     } else {
-        setStatus(password_confirm, "Passwords do not match.");
+        Utils.setInvalid(password_confirm);
+        Utils.setStatus(password_confirm, "Passwords do not match.");
     }
 });
 
 password_confirm.addEventListener("input", () => {
     if (password.value == password_confirm.value) {
-        clearStatus(password_confirm);
+        Utils.setValid(password_confirm);
+        Utils.clearStatus(password_confirm);
     } else {
-        setStatus(password_confirm, "Passwords do not match.");
+        Utils.setInvalid(password_confirm);
+        Utils.setStatus(password_confirm, "Passwords do not match.");
     }
 });
 
 gender.addEventListener("input", () => {
     if (gender.value == "custom") {
-        setClass(custom_gender_options, "hidden", false);
+        Utils.setClass(custom_gender_options, "hidden", false);
     } else {
-        setClass(custom_gender_options, "hidden", true);
+        Utils.setClass(custom_gender_options, "hidden", true);
+    }
+});
+
+form.addEventListener("submit", (event) => {
+    let valid = true;
+    form.querySelectorAll("input").forEach((element) => {
+        if (!element.checkValidity() || element.classList.contains("invalid")) {
+            Utils.setStatus(element, "Please fix this field before submitting.")
+            valid = false;
+        }
+    });
+    if (!valid) {
+        event.preventDefault();
+        
     }
 });
