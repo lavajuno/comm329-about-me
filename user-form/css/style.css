@@ -32,14 +32,13 @@ body>header, main, body>footer {
     padding-right: 0.5rem;
 }
 
-body>header {
-    text-align: center;
+body>header, body>footer {
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
 }
 
-body>footer {
-    margin-top: 2.5rem;
+body>header {
+    text-align: center;
 }
 
 

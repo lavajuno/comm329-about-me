@@ -200,6 +200,5 @@ form.addEventListener("submit", (event) => {
     });
     if (!valid) {
         event.preventDefault();
-        
     }
 });
