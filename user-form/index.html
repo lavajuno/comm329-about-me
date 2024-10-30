@@ -68,7 +68,6 @@
                         <input
                             type="password"
                             id="password"
-                            name="password"
                             minlength="15"
                             maxlength="64"
                             required
@@ -80,12 +79,25 @@
                         <input
                             type="password"
                             id="password_confirm"
-                            name="password_confirm"
                             minlength="15"
                             maxlength="64"
                             required
                         />
                     </div>
+
+                    <!--
+                        Note: Password hashing should _never_ be done
+                        client-side. If it is, attackers can try hashes without
+                        even cracking them. The actual password should be sent
+                        to the server over an encrypted connection, where it is
+                        hashed and compared to a stored (and salted) hash.
+                    -->
+                    <input
+                        type="hidden"
+                        id="password_hash"
+                        name="password_hash"
+                        value=""
+                    />
                 </fieldset>
 
                 <fieldset>

@@ -36,6 +36,11 @@ const password_confirm = document.getElementById("password_confirm");
 /**
  * @type {HTMLInputElement}
  */
+const password_hash = document.getElementById("password_hash");
+
+/**
+ * @type {HTMLInputElement}
+ */
 const gender = document.getElementById("gender");
 
 /**
@@ -100,6 +105,15 @@ class Utils {
         let status = element.parentElement.querySelector("div.status");
         if (status != null) { status.remove(); }
     }
+
+    /**
+     * @param {HTMLInputElement} text_input 
+     * @param {HTMLInputElement} hash_input 
+     */
+    static async setHash(text_input, hash_input) {
+        let hash = await Crypto.hash(text_input.value);
+        hash_input.value = hash;
+    }
 }
 
 class Validators {
@@ -126,6 +140,22 @@ class Validators {
      */
     static email(element) {
         return element.type == "email" && element.checkValidity();
+    }
+}
+
+class Crypto {
+    /**
+     * @param {String} text 
+     * @returns {String}
+     */
+    static async hash(text) {
+        let hash_buf = await window.crypto.subtle.digest(
+            "SHA-256",
+            (new TextEncoder()).encode(text)
+        );
+        return Array.from(new Uint8Array(hash_buf))
+            .map((b) => b.toString(16).padStart(2, "0"))
+            .join("");
     }
 }
 
@@ -158,6 +188,7 @@ phone.addEventListener("input", () => {
 });
 
 password.addEventListener("input", () => {
+    Utils.setHash(password, password_hash);
     if (Validators.password(password)) {
         Utils.clearStatus(password);
     } else {
