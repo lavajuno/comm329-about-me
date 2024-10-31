@@ -191,13 +191,31 @@ header.hero {
     text-align: center;
     padding: 8rem 1rem;
     border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.5);
+}
+
+header.hero.sky {
     background-image: url("../images/sky.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0.5rem 0.5rem 1rem rgba(0,0,0,0.5);
+}
+
+header.hero.purple {
+    background-size: 100% 100%;
+    background-image: radial-gradient(49% 81% at 45% 47%, #EE931045 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #6925C7FF 1%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #3EA3D3FF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #0F6EE8FF 1%, #FF000000 99%),radial-gradient(142% 91% at 111% 84%, #FF8B53FF 0%, #FF0000FF 100%);
+}
+
+header.hero.blue {
+    background-size: 100% 100%;
+    background-image: radial-gradient(49% 81% at 45% 47%, #36EE1045 0%, #073AFF00 100%),radial-gradient(113% 91% at 17% -2%, #0C67CFFF 1%, #FF000000 99%),radial-gradient(142% 91% at 83% 7%, #25A1E8FF 1%, #FF000000 99%),radial-gradient(142% 91% at -6% 74%, #084DFEFF 1%, #FF000000 99%),radial-gradient(142% 91% at 111% 84%, #43EF7CFF 0%, #FF0000FF 100%);
+}
+
+header.hero.grey {
+    background-size: 100% 100%;
+    background-image: radial-gradient(49% 81% at 45% 47%, #445C9145 0%, #FFFFFF00 100%),radial-gradient(113% 91% at 17% -2%, #3D446CFF 1%, #FFFFFF00 99%),radial-gradient(142% 91% at 83% 7%, #706990FF 1%, #FFFFFF00 99%),radial-gradient(142% 91% at -6% 74%, #606E79FF 1%, #FFFFFF00 99%),radial-gradient(142% 91% at 111% 84%, #7B8BA8FF 1%, #FFFFFFFF 100%);
 }
 
 header.hero>h1 {
@@ -423,4 +441,36 @@ button.collapse {
 
 .expanded button.collapse {
     display: initial;
+}
+
+/*
+    ----- Forms -----
+*/
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+textarea
+{
+    color: inherit;
+    border: 1px solid rgb(65,65,65);
+    background-color: rgb(15,15,20);
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font: inherit;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+}
+
+label {
+    margin-top: 0.5rem;
+}
+
+input:invalid {
+    border-bottom: 2px solid rgb(200,0,0);
+}
+
+input:invalid:focus {
+    background-color: rgb(20,0,0);
 }
