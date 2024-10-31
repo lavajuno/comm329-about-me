@@ -477,10 +477,15 @@ label {
     margin-top: 0.5rem;
 }
 
-input:invalid {
-    border-bottom: 2px solid rgb(200,0,0);
+input:invalid, input.invalid {
+    border-bottom: 2px solid rgb(150,0,0);
 }
 
-input:invalid:focus {
+input:invalid:focus, input.invalid:focus {
     background-color: rgb(20,0,0);
+}
+
+form div.status {
+    font-size: 0.8rem;
+    color: rgb(250,50,50)
 }
