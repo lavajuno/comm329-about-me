@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage - COMM329 - Juno Meifert</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Session Storage</h1>
+    </header>
+
+    <main>
+        <form action="">
+            <div class="widget">
+                <label for="first_name">First name:</label>
+                <input
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    minlength="2"
+                    maxlength="32"
+                    required
+                />
+            </div>
+
+            <div class="widget">
+                <label for="last_name">Last name:</label>
+                <input
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    minlength="2"
+                    maxlength="32"
+                    required
+                />
+            </div>
+
+            <div class="widget">
+                <label for="email">Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    minlength="2"
+                    maxlength="32"
+                    required
+                />
+            </div>
+
+            <div class="widget">
+                <label for="email">City:</label>
+                <input
+                    type="email"
+                    id="city"
+                    name="city"
+                    minlength="2"
+                    maxlength="64"
+                    required
+                />
+            </div>
+
+            <div class="widget">
+                <label for="state">State:</label>
+                <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    minlength="2"
+                    maxlength="64"
+                    required
+                />
+            </div>
+
+            <div class="widget">
+                <label for="zip_code">ZIP Code:</label>
+                <input
+                    type="text"
+                    id="zip_code"
+                    name="zip_code"
+                    minlength="5"
+                    maxlength="5"
+                    required
+                />
+            </div>
+
+            <button type="button" class="wide" onclick="save()">
+                Save
+            </button>
+
+            <button type="button" class="wide" onclick="restore()">
+                Restore
+            </button>
+
+            <button type="button" class="wide" onclick="clear_saved()">
+                Clear
+            </button>
+
+            <p id="status"></p>
+        </form>
+    </main>
+
+    <footer class="right">
+        <h3>&copy; 2024 Juno Meifert</h3>
+        <p>
+            COMM329 - Session Storage
+        </p>
+    </footer>
+
+    <script type="text/javascript" src="js/session_storage.js"></script>
+</body>
+</html>

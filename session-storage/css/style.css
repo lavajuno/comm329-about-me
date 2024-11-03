@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+body>header, main, body>footer {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+body>header, body>footer {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+body>header {
+    text-align: center;
+}
+
+
+
+/* --- Forms --- */
+
+form div.widget>input, form div.widget>label {
+    display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"]
+{
+    border: 1px solid rgb(150,150,150);
+    background-color: rgb(250,250,250);
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font: inherit;
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+}
+
+label {
+    margin-top: 0.5rem;
+}
+
+input:invalid, input.invalid {
+    border-bottom: 2px solid rgb(200,0,0);
+}
+
+input:invalid:focus, input.invalid:focus {
+    background-color: rgb(255,240,240);
+}
+
+
+
+/* --- Buttons --- */
+
+button, a.button, label.button {
+    border: 1px solid rgb(150,150,150);
+    background-color: rgb(230,230,230);
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+    font: inherit;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem 0;
+    transition-duration: 200ms;
+}
+
+button.wide, a.button.wide, label.button.wide {
+    display: block;
+    width: 100%;
+    max-width: 30rem;
+    text-align: center;
+    margin: 1rem auto 0 auto;
+}
+
+button:hover, a.button:hover, label.button:hover {
+    background: rgb(200,200,200);
+    box-shadow: 0.15rem 0.15rem 0.45rem rgba(0,0,0,0.1);
+    cursor: pointer;
+    
+}
+
+/* --- Shortcuts --- */
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
