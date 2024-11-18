@@ -1,0 +1,7 @@
+body {
+    background-color: rgb(10, 10, 20);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: 0px 0px,0px 0px,0px 0px,0px 0px,0px 0px;
+    background-image: radial-gradient(75% 75% at 19% 23%, #577EC405 0%, #250E7314 100%),radial-gradient(48% 48% at 60% 45%, #0D3AAC21 0%, #30349508 99%),radial-gradient(75% 75% at 17% 56%, #3CDCC60D 0%, #1E32570D 100%),radial-gradient(75% 75% at 71% 67%, #22336224 0%, #34357612 100%),radial-gradient(75% 75% at 44% 52%, #080808FF 0%, #070D11FF 99%);
+}
